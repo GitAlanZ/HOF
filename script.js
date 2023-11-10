@@ -15,7 +15,7 @@ function mult(factor){
 }
 
 let doubler = mult(2);
-let tripler = mult(3);
+let triple = mult(3);
 let quad = mult(4);
 
 //map access each element in array and changes them
@@ -56,9 +56,32 @@ let func2 = (num) => {
 }
 function compose(func1, func2){
     return (x) => {
-        func2(func(x));
+        return func2(func1(x));
     }
 }
 
+console.log(compose(func1, func2)(5));
 
-console.log(compose(5));
+let vals = [4,8,7,9,1,-4,-7];
+console.log(vals);
+function tripler(array){
+    return array.map((val) => val*=3)
+}
+
+console.log(tripler(vals));
+
+let value = [4,8,7,9,1,-5,-5];
+console.log(value);
+function belowZero(array){
+    return array.filter((num) => num < 0);
+}
+
+console.log(belowZero(value));
+
+let values = [4,8,7,9,1];
+console.log(vals);
+function totalSum(array){
+    const sum = array.reduce((total, currentValue) => {return total + currentValue}, 0)
+    return sum;
+}
+console.log(totalSum(values));
